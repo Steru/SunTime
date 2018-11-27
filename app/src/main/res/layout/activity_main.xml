@@ -21,7 +21,8 @@
         android:id="@+id/sunrise_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/view_padding"
+        android:paddingStart="@dimen/view_padding"
+        android:paddingEnd="@dimen/view_padding"
         android:text="@string/sunrise_temp"
         android:textSize="@dimen/text_size_grand"
         app:layout_constraintBottom_toTopOf="@+id/golden_guideline"
@@ -39,7 +40,8 @@
         android:id="@+id/sunset_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/view_padding"
+        android:paddingStart="@dimen/view_padding"
+        android:paddingEnd="@dimen/view_padding"
         android:text="@string/sunset_temp"
         android:textSize="@dimen/text_size_grand"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,9 +51,9 @@
     <TextView
         android:id="@+id/day_length_description"
         android:layout_width="wrap_content"
-        android:text="@string/day_length"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/view_padding"
+        android:text="@string/day_length"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sunset_value" />
@@ -75,6 +77,34 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:alpha="0.6"
+        android:layout_marginEnd="@dimen/view_padding"
+        android:maxHeight="@dimen/sun_icon_size"
+        app:layout_constraintBottom_toTopOf="@+id/sunset_value"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sunrise_value"
+        app:srcCompat="@drawable/sunrise2"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/view_padding"
+        android:adjustViewBounds="true"
+        android:alpha="0.6"
+        android:maxHeight="@dimen/sun_icon_size"
+        app:layout_constraintBottom_toBottomOf="@+id/sunset_value"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sunset_value"
+        app:srcCompat="@drawable/sunset2"
+        tools:ignore="ContentDescription" />
 
 
 </android.support.constraint.ConstraintLayout>

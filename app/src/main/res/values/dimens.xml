@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="view_padding">14dp</dimen>
-    <dimen name="text_size_grand">38sp</dimen>
+    <dimen name="text_size_grand">62sp</dimen>
     <dimen name="text_size_main">24sp</dimen>
+    <dimen name="sun_icon_size">38dp</dimen>
 </resources>
