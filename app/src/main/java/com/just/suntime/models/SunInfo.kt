@@ -1,4 +1,4 @@
-package com.just.suntime
+package com.just.suntime.models
 
 import java.util.*
 

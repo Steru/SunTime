@@ -1,9 +1,11 @@
-package com.just.suntime
+package com.just.suntime.views
 
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.just.suntime.viewmodels.MainViewModel
+import com.just.suntime.R
 import com.just.suntime.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
