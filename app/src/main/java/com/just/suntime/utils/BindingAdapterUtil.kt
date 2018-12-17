@@ -1,7 +1,7 @@
 package com.just.suntime.utils
 
-import android.databinding.BindingAdapter
 import android.widget.TextView
+import androidx.databinding.BindingAdapter
 import java.text.SimpleDateFormat
 import java.util.*
 

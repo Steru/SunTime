@@ -1,12 +1,31 @@
 package com.just.suntime.viewmodels
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.just.suntime.models.SunInfo
+import io.reactivex.subjects.BehaviorSubject
 import java.util.*
 
 class MainViewModel : ViewModel() {
+    private val sunInfoSubject: BehaviorSubject<SunInfo> = BehaviorSubject.create()
+    private val sunInfoMutableLiveData: MutableLiveData<SunInfo> = MutableLiveData()
 
-    fun getSunData() : SunInfo {
-        return SunInfo(Date(0), Date(3600 * 1000), 3600 * 1000)
+    //region Init
+    init {
+        sunInfoMutableLiveData.value = SunInfo(Date(0),
+                Date(3600 * 1000),
+                3600 * 1000)
     }
+    //endregion
+
+    //region Inputs
+
+    //endregion
+
+    //region Outputs
+    fun getSunData(): MutableLiveData<SunInfo> {
+        return sunInfoMutableLiveData
+    }
+    //endregion
+
 }
