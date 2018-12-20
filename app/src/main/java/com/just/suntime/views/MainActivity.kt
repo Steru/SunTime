@@ -19,5 +19,6 @@ class MainActivity : AppCompatActivity() {
                 ViewModelProviders.of(this).get(MainViewModel::class.java)
 
         binding.viewModel = viewModel
+        binding.setLifecycleOwner(this)
     }
 }
