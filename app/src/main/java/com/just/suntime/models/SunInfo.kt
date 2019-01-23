@@ -1,5 +1,4 @@
 package com.just.suntime.models
 
-import java.util.*
 
-data class SunInfo(val sunRise: Date, val sunSet: Date, val dayLengthSeconds: Int)
+data class SunInfo(val sunRise: String, val sunSet: String, val dayLengthSeconds: Int)

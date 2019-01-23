@@ -27,8 +27,8 @@ class MainViewModel : ViewModel() {
                 }
 
         //TODO display spinner when data is not available, not some hardcoded values
-        sunInfoMutableLiveData.value = SunInfo(Date(0),
-                Date(3600 * 1000),
+        sunInfoMutableLiveData.value = SunInfo("00:00",
+                "99:99",
                 3600 * 1000)
     }
 
