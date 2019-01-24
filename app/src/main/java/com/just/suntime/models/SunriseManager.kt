@@ -1,6 +1,5 @@
 package com.just.suntime.models
 
-import android.util.Log
 import com.just.suntime.utils.Coordinates
 import com.just.suntime.models.retrofit.RestAPI
 import io.reactivex.Observable
@@ -15,7 +14,7 @@ class SunriseManager(private val api: RestAPI = RestAPI()) {
     private val fullDateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ",
             Locale.getDefault())
 
-    fun getSunInfo(coordinates: Coordinates): Observable<SunInfo> {
+    fun getSunInfo(coordinates: Coordinates): Observable<FormattedSunInfo> {
         return Observable.create { subscriber ->
             val response = api.getSunInfo(coordinates).execute()
             if (response.isSuccessful && response.body() != null) {
@@ -24,18 +23,24 @@ class SunriseManager(private val api: RestAPI = RestAPI()) {
                 val data = response.body()!!.results
 
                 subscriber.onNext(
-                        SunInfo(convertToHours(data.sunrise),
-                                convertToHours(data.sunset),
-                                data.dayLength))
+                        FormattedSunInfo(formatFullDateToHours(data.sunrise),
+                                formatFullDateToHours(data.sunset),
+                                formatSecondsToHours(data.dayLength)))
             } else {
                 subscriber.onError(Throwable(response.message()))
             }
         }
     }
 
-    private fun convertToHours(date: String): String {
-        val fullDate = fullDateFormat.parse(date)
-        return SimpleDateFormat("HH:mm", Locale.getDefault()).format(fullDate)
+    private val hoursMinutesFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+
+    private fun formatFullDateToHours(date: String): String {
+        return hoursMinutesFormat.format(fullDateFormat.parse(date))
+    }
+
+    private fun formatSecondsToHours(seconds: Int) : String {
+        return hoursMinutesFormat.format(SimpleDateFormat("ss", Locale.getDefault())
+                .parse(seconds.toString()))
     }
 
 }

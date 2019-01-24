@@ -14,3 +14,4 @@ fun TextView.showDayLength(dayLength: Int) {
     text = SimpleDateFormat("HH:mm", Locale.getDefault()).format(dayLength)
 }
 
+
